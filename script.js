@@ -11,7 +11,7 @@ let coins = parseInt(coinCountEl.innerText);
 function handleHeartClick(heartIcon) {
     heartCount++;
     heartCountEl.innerText = heartCount;
-    heartIcon.classList.add('text-red-500'); // Optional: change color
+    heartIcon.classList.add('text-red-500'); 
 }
 
 // Function to handle Call click
@@ -30,14 +30,14 @@ function handleCallClick(callBtn) {
 
     alert(`Calling ${serviceName}: ${serviceNumber}`);
 
-    // Add to Call History
+
 
 
  // Add to Call History
 const historyItem = document.createElement('div');
 historyItem.classList.add('flex', 'justify-between', 'shadow-md', 'py-2', 'items-center');
 
-// Left side: service name & number vertically
+
 const leftDiv = document.createElement('div');
 leftDiv.classList.add('flex', 'flex-col');
 leftDiv.innerHTML = `
@@ -45,17 +45,17 @@ leftDiv.innerHTML = `
     <span class="text-sm text-gray-500">${serviceNumber}</span>
 `;
 
-// Right side: timestamp
+
 const rightDiv = document.createElement('div');
 rightDiv.classList.add('text-xs', 'text-gray-400');
 const now = new Date();
-rightDiv.innerText = now.toLocaleTimeString(); // অথবা now.toLocaleString() চাইলে date+time
+rightDiv.innerText = now.toLocaleTimeString();
 
-// Combine
+
 historyItem.appendChild(leftDiv);
 historyItem.appendChild(rightDiv);
 
-// Add to container
+
 callHistoryContainer.prepend(historyItem);
 
 
@@ -64,16 +64,13 @@ callHistoryContainer.prepend(historyItem);
 
 
 
-
-
-
-
 // Function to Clear History
+
 function clearCallHistory() {
     callHistoryContainer.innerHTML = '';
 }
 
-// Attach Event Listeners
+
 document.querySelectorAll('.card-heart').forEach(heart => {
     heart.addEventListener('click', () => handleHeartClick(heart));
 });
