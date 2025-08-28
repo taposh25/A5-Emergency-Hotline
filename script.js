@@ -6,7 +6,7 @@ const clearHistoryBtn = document.getElementById('clear-history-btn');
 
 let heartCount = parseInt(heartCountEl.innerText);
 let coins = parseInt(coinCountEl.innerText);
-
+                    
 // Function to handle Heart click
 function handleHeartClick(heartIcon) {
     heartCount++;
