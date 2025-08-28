@@ -80,3 +80,30 @@ document.querySelectorAll('.call-btn').forEach(btn => {
 });
 
 clearHistoryBtn.addEventListener('click', clearCallHistory);
+
+
+// Copy text and number 
+
+
+function handleCopyClick(copyBtn) {
+    const card = copyBtn.closest('.card');
+    const serviceName = card.querySelector('.service-name').innerText;
+    const serviceNumberText = card.querySelector('.service-number').innerText;
+    const mainNumber = card.querySelector('.service-number-to-copy').innerText;
+
+    const textToCopy = `${serviceName}\n${serviceNumberText}\n${mainNumber}`;
+
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+            
+            copyBtn.innerText = 'Copied!';
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fa-regular fa-copy mr-2"></i> Copy';
+            }, 1500);
+        })
+        .catch(err => console.error('Failed to copy text: ', err));
+}
+
+document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => handleCopyClick(btn));
+});
